@@ -1,10 +1,9 @@
-console.log("Hello World!");
+console.log(getComputerChoice());
 
 function getComputerChoice() {
-    // randomize computerchoice selection
-    let choice1 = "Rock";
-    let choice2 = "Paper";
-    let choice3 = "Scissors";
+    // randomy return computerchoice selection
+    const possibleChoices = ['Rock', 'Paper', 'Scissors'];  
+    let computerChoice = possibleChoices[Math.floor(Math.random() * possibleChoices.length)];  
     return computerChoice;
 }
 

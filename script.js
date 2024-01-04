@@ -8,36 +8,52 @@ function getComputerChoice() {
 function playRound (playerSelection, computerSelection) {
     // account for TIES
     // case insensitive inputs from playerSelection
+    // result 0 = lose
+    // result 1 = win
+    // result 2 = tie
     playerSelection = playerSelection.toLowerCase();
-    let result = "";
+    let result;
 
     if (playerSelection == "rock" && computerSelection == "Rock") {
-        result = "Tie! Nobody won!";
+        result = 2;
     } else if (playerSelection == "rock" && computerSelection == "Paper") {
-        result = "You Lose! Paper beats Rock!";
+        result = 0;
     } else if (playerSelection == "rock" && computerSelection == "Scissors") {
-        result = "You Win! Rock beats Scissors!";
+        result = 1;
 
     } else if (playerSelection == "paper" && computerSelection == "Rock") {
-        result = "You Win! Paper beats Rock!";
+        result = 1;
     } else if (playerSelection == "paper" && computerSelection == "Paper") {
-        result = "Tie! Nobody won!";
+        result = 2;
     } else if (playerSelection == "paper" && computerSelection == "Scissors") {
-        result = "You Lose! Scissors beats Paper!";
+        result = 0;
 
     } else if (playerSelection == "scissors" && computerSelection == "Rock") {
-        result = "You lose! Rock beats Scissors!";
+        result = 0;
     } else if (playerSelection == "scissors" && computerSelection == "Paper") {
-        result = "You win! Scissors beats Paper";
+        result = 1;
     } else if (playerSelection == "scissors" && computerSelection == "Scissors") {
-        result = "Tie! Nobody won!";
+        result = 2;
+    } 
+    else {
+        result = "You have entered an incorrect value!";
     }
 
     return result;
 }
 
 
+function game() {}
+
+
 const player = "rock";
 const computer = getComputerChoice();
 
-console.log(playRound(player, computer));
+let msgWin = `You win! ${player.charAt(0).toUpperCase()} beats ${computer}!`;
+let msgLose = `You lose! ${computer} beats ${player.charAt(0).toUpperCase()}`;
+let msgTie = "Tie! Nobody won!";
+
+let userInput = prompt("Enter either Rock, Paper or Scissors");
+console.log(userInput);
+
+// console.log(playRound(player, computer));
